@@ -6,6 +6,8 @@ import router from './router.js'
 //import css
 import './style/reset.css' //统一不同手机样式
 import './style/border.css'//解决1px边框问题
+//iconfont图标库
+import './style/iconfont/iconfont.css'
 //解决移动端click 300s延时
 import fastClick from 'fastclick';
 
