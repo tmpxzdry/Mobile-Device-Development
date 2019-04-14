@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router.js'
-
+//vue-awesome-swiper实现轮播
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 
 //import css
 import './style/reset.css' //统一不同手机样式
@@ -13,6 +15,7 @@ import fastClick from 'fastclick';
 
 Vue.config.productionTip = false
 fastClick.attach(document.body);
+Vue.use(VueAwesomeSwiper);
 
 
 
