@@ -1,7 +1,7 @@
 <template lang="pug">
 div.swiper-wrap
   swiper(:options='swiperOption')
-    swiper-slide(v-for="item of swipers" :key="item.id"): img(:src="item.src" alt="item.alt" )
+    swiper-slide( v-for="item of swipers" :key="item.id"): img(:src="item.src" :alt="item.alt" )
     .swiper-pagination(slot='pagination')  
 
 </template>
@@ -18,7 +18,8 @@ export default {
     return {
       swiperOption: {
         pagination: ".swiper-pagination",
-        loop: true
+        loop: true,
+        autoplay: 5000 //3.0以下api
       }
     };
   }
@@ -31,11 +32,11 @@ export default {
 
 .swiper-wrap {
   width: 100%;
-  background: #eee;
+  background: #000;
   height: 0;
   // height: 31.25vw;//相对视图比高为31.25，单兼容性可能有问题
   overflow: hidden;
-  padding-bottom: 31.25%;
+  padding-bottom: 30.59%;
 }
 
 img {
