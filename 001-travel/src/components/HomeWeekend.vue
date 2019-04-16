@@ -75,7 +75,7 @@ ul {
   .item-img-wrap {
     height: 0;
     overflow: hidden;
-    padding-bottom: 33.9%;
+    padding-bottom: 37.09%;
   }
 
   // background: #c1c;

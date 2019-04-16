@@ -1,7 +1,7 @@
 <template lang="pug">
 div.icons-wrap 
   div.icons
-    swiper(:options="swiperOption")
+    swiper(:options="swiperOption" v-if="showIcons")
       swiper-slide(v-for="(page,index) in pages" :key="index")
         div.icon(v-for="icon in page" :key="icon.id")
           div.icon-img 
@@ -14,8 +14,7 @@ export default {
   name: "HomeIcons",
   props: {
     icons: {
-      type: Array,
-      required: true
+      type: Array
     }
   },
   data() {
@@ -35,6 +34,9 @@ export default {
         pages[page].push(item);
       });
       return pages;
+    },
+    showIcons() {
+      return this.icons.length;
     }
   }
 };

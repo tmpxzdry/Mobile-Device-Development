@@ -1,6 +1,6 @@
 <template lang="pug">
 div.swiper-wrap
-  swiper(:options='swiperOption')
+  swiper(:options='swiperOption' v-if="showSwiper")
     swiper-slide( v-for="item of swipers" :key="item.id"): img(:src="item.src" :alt="item.alt" )
     .swiper-pagination(slot='pagination')  
 
@@ -10,8 +10,7 @@ export default {
   name: "HomeSwiper",
   props: {
     swipers: {
-      type: Array,
-      required: true
+      type: Array
     }
   },
   data() {
@@ -22,6 +21,11 @@ export default {
         autoplay: 5000 //3.0以下api
       }
     };
+  },
+  computed: {
+    showSwiper() {
+      return this.swipers.length;
+    }
   }
 };
 </script>
@@ -32,7 +36,7 @@ export default {
 
 .swiper-wrap {
   width: 100%;
-  background: #000;
+  background: #fff;
   height: 0;
   // height: 31.25vw;//相对视图比高为31.25，单兼容性可能有问题
   overflow: hidden;

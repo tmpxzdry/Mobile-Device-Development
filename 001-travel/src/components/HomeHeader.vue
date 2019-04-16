@@ -5,12 +5,15 @@
       span.iconfont &#xe632; 
       span 输入城市/景点/游玩/主题
     div.header-right 
-      span.city 城市
+      span.city {{city}}
       span.triangle
 </template>
 <script>
 export default {
-  name: "HomeHeader"
+  name: "HomeHeader",
+  props: {
+    city: String
+  }
 };
 </script>
 <style lang="stylus" scoped>
