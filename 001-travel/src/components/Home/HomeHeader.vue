@@ -4,7 +4,7 @@
     div.header-input 
       span.iconfont &#xe632; 
       span 输入城市/景点/游玩/主题
-    div.header-right 
+    router-link(to="/city").header-right 
       span.city {{city}}
       span.triangle
 </template>
@@ -41,7 +41,7 @@ export default {
 .header {
   display: flex;
   background: $bg_color;
-  line-height: 0.86rem;
+  line-height: $header_heigth;
   color: #fff;
 
   .header-left {
@@ -69,6 +69,7 @@ export default {
   .header-right {
     width: 1.24rem;
     float: right;
+    color: #fff;
 
     // text-align: center;
     .city {

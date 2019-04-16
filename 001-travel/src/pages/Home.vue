@@ -8,11 +8,11 @@
     div 测试
 </template>
 <script>
-import HomeHeader from "@/components/HomeHeader.vue";
-import HomeSwiper from "@/components/HomeSwiper.vue";
-import HomeIcons from "@/components/HomeIcons.vue";
-import HomeRecommend from "@/components/HomeRecommend.vue";
-import HomeWeekend from "@/components/HomeWeekend.vue";
+import HomeHeader from "@/components/Home/HomeHeader.vue";
+import HomeSwiper from "@/components/Home/HomeSwiper.vue";
+import HomeIcons from "@/components/Home/HomeIcons.vue";
+import HomeRecommend from "@/components/Home/HomeRecommend.vue";
+import HomeWeekend from "@/components/Home/HomeWeekend.vue";
 import api from "../api/getHomeData";
 
 export default {
@@ -36,7 +36,6 @@ export default {
         .getHomeData()
         .then(r => {
           if (r.status == "ok") {
-            console.log(r);
             let data = r.HomeData[0];
             this.city = data.city;
             this.swiperList = data.swiperList;
