@@ -14,8 +14,8 @@ export default {
   position: relative;
   font-size: 0.32rem;
   overflow: hidden;
-  height: $header_heigth;
-  line-height: $header_heigth;
+  height: $header_height;
+  line-height: $header_height;
   text-align: center;
   color: #fff;
   background: $bg_color;

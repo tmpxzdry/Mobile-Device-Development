@@ -41,7 +41,7 @@ export default {
 .header {
   display: flex;
   background: $bg_color;
-  line-height: $header_heigth;
+  line-height: $header_height;
   color: #fff;
 
   .header-left {
