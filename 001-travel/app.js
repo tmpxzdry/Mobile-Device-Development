@@ -27,10 +27,10 @@ const db = mongoose.connection;
 db.once("open", () => console.log("database open successed"))
 db.once("error", () => console.log("database open failed"))
 //test insert data
-// const gw = require('./models/gowhere');
+const gw = require('./models/gowhere');
 
-// console.log(data);
-// gw.create(data).then(r => {
+// console.log(data.cityData);
+// gw.create(data.homeData).then(r => {
 //     console.log('done');
 // });
 

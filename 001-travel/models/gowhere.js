@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 
 var gowhereSchema = mongoose.Schema({
-    swiperList: {
-        type: Array
+    data_name: {
+        type: String,
+        required: true,
+        unique: true //若不生效需删除整个数据库在重新配置
     },
-    iconList: Array,
-    recommendList: Array,
-    weekendList: Array,
+    data: {
+        type: {},
+        required: true
+    }
 })
 
 module.exports = mongoose.model('gowhere', gowhereSchema, 'gowhere')

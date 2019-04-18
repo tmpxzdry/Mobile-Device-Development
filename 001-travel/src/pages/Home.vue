@@ -36,7 +36,7 @@ export default {
         .getHomeData()
         .then(r => {
           if (r.status == "ok") {
-            let data = r.HomeData[0];
+            let data = r.HomeData;
             this.city = data.city;
             this.swiperList = data.swiperList;
             this.iconList = data.iconList;

@@ -10,9 +10,10 @@ router.put('/createData', (req, res) => {
     })
 })
 router.get('/getHomeData', (req, res) => {
-    gw.find({}).then(data => {
-        res.send({ status: 'ok', HomeData: data })
-    }).catch(e => res.send(e));
+    gw.findOne(req.query)
+        .then(data => {
+            res.send({ status: 'ok', HomeData: data.data })
+        }).catch(e => res.send(e));
 })
 
 module.exports = router;
