@@ -4,11 +4,12 @@ div
     input.search-input(v-model="keyword" placeholder="输入城市名或拼音")
   div.search-content(ref="search" v-show="keyword")
     ul
-      li.search-item.border-bottom(@click="changeHotCity(city.name)" v-for="city of list" :key="city.id") {{city.name}}
+      li.search-item.border-bottom(@click="changeCity(city.name)" v-for="city of list" :key="city.id") {{city.name}}
       li(v-show="!list.length").search-item.border-bottom 没有找到该城市...
 </template>
 <script>
 import Bscroll from "better-scroll";
+import { mapMutations } from "vuex";
 
 export default {
   name: "CitySearch",
@@ -49,10 +50,12 @@ export default {
     this.scroll = new Bscroll(this.$refs.search);
   },
   methods: {
-    changeHotCity(city) {
-      this.$store.commit("changeHotCity", city);
-      this.$router.push('/')
-    }
+    changeCity(city) {
+      this.changeHotCity(city);
+      this.$router.push("/");
+      Object.assign(this.$data, this.$options.data());
+    },
+    ...mapMutations(["changeHotCity"])
   }
 };
 </script>
