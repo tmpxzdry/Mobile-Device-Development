@@ -3,51 +3,68 @@ mixin area(title)
   div.area
     div.title.border-topbottom=title
     div.locations
-      each n in new Array(7).fill(0)
         +location
 mixin location
-  div.btn-wrapper: div.location 北京
+  div.btn-wrapper: div.location {{cut(this.currentCity)}}
 div.list(ref="scroll")
  div
   +area('当前城市')
-  +area('热门城市')
   div.area
-    div.title.border-topbottom A
+    div.title.border-topbottom 热门城市
+    div.locations
+      div.btn-wrapper(@click="changeCity(hot.name)" v-for="hot in hotCities" :key="hot.id"): div.location {{hot.name}}
+  div.area(v-for="(citiesItem,key) of cities" :key="key" :ref="key")
+    div.title.border-topbottom {{key}}
     div.area-list
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-    div.title.border-topbottom A
-    div.area-list
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-    div.title.border-topbottom A
-    div.area-list
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-    div.title.border-topbottom A
-    div.area-list
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-      div.area-item.border-bottom 阿拉尔
-
-
+      div.area-item.border-bottom(@click="changeCity(city.name)" v-for="city in citiesItem" :key="city.id") {{city.name}}
 </template>
 <script>
 import Bscroll from "better-scroll";
-
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "CityList",
+  computed: {
+    ...mapState({
+      currentCity: "city"
+    })
+  },
+  props: {
+    hotCities: {
+      type: Array
+    },
+    cities: {
+      type: Object,
+      required: true
+    },
+    letter: String
+  },
   mounted() {
     this.scroll = new Bscroll(this.$refs.scroll);
+  },
+  methods: {
+    changeCity(city) {
+      // this.$store.commit("changeHotCity", city);
+      this.changeHotCity(city);
+      console.log("done");
+      this.$router.push("/");
+    },
+    cut(value) {
+      return value.length > 5 ? value.substr(0, 4) + "..." : value;
+    },
+    ...mapMutations(["changeHotCity"])//使用此接口不能和methods里的函数重名
+  },
+  watch: {
+    letter() {
+      const el = this.$refs[this.letter][0];
+      this.scroll.scrollToElement(el); //自动滚动到某元素
+    }
   }
+  // beforeUpdate() {
+  //   console.log(this.hotCities);
+  //   console.log(this.cities);
+  //   console.log(this.a);
+  // }
 };
 </script>
 <style lang="stylus" scoped>

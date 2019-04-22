@@ -13,6 +13,8 @@ import './style/iconfont/iconfont.css'
 //解决移动端click 300s延时
 import fastClick from 'fastclick';
 
+//vuex
+import store from './store'
 Vue.config.productionTip = false
 fastClick.attach(document.body);
 Vue.use(VueAwesomeSwiper);
@@ -21,5 +23,6 @@ Vue.use(VueAwesomeSwiper);
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

@@ -1,6 +1,6 @@
 <template lang="pug">
   div.container
-    home-header(:city="city")
+    home-header
     home-swiper(:swipers="swiperList")
     home-icons(:icons="iconList")
     home-recommend(:recommends="recommendList")
@@ -20,7 +20,6 @@ export default {
   components: { HomeHeader, HomeSwiper, HomeIcons, HomeRecommend, HomeWeekend },
   data() {
     return {
-      city: "",
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -37,7 +36,6 @@ export default {
         .then(r => {
           if (r.status == "ok") {
             let data = r.HomeData;
-            this.city = data.city;
             this.swiperList = data.swiperList;
             this.iconList = data.iconList;
             this.recommendList = data.recommendList;

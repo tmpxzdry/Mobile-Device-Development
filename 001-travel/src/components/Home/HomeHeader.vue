@@ -5,23 +5,32 @@
       span.iconfont &#xe632; 
       span 输入城市/景点/游玩/主题
     router-link(to="/city").header-right 
-      span.city {{city}}
+      span.city {{cut(this.city)}}
       span.triangle
 </template>
+
 <script>
+import { mapState } from "vuex";
 export default {
   name: "HomeHeader",
-  props: {
-    city: String
+  computed:{
+    ...mapState(['city'])
+  },
+  methods: {
+    cut(value) {
+      return value.length > 5 ? value.substr(0, 4) : value;
+    }
   }
 };
 </script>
 <style lang="stylus" scoped>
 @import '~@style/color.styl';
+@import '~@style/mixins.styl';
 
 .triangle {
   position: absolute;
   font-size: 0.24rem;
+  margin-left: -0.1rem;
 
   &::after {
     height: 0;
@@ -67,13 +76,21 @@ export default {
   }
 
   .header-right {
-    width: 1.24rem;
+    min-width: 1.04rem;
+    padding: 0 0.1rem;
     float: right;
     color: #fff;
+    text-align: center;
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
 
     // text-align: center;
     .city {
-      margin-left: 0.18rem;
+      // ellip();
+      padding-right: 0.1rem;
+      font-size: 0.25rem;
+      // min-width: 1.04rem;
+      letter-spacing: 0.03rem;
     }
   }
 }
