@@ -4,14 +4,14 @@ div.recommend
     span.title-icon: img(src="https://imgs.qunarzz.com/piao/fusion/1711/89/ebc329f16c55bb02.png")
     span.title 猜你喜欢
   ul
-    li.item.border-bottom(v-for="recommend in recommends" :key="recommend.id")
+    router-link.item.border-bottom(:to="'/detail/'+recommend.id" tag="li" v-for="recommend in recommends" :key="recommend.id")
       div.item-img-wrap: img.item-img(:src="recommend.src")
       div.item-info
         p.item-title {{cut(recommend.title,5)}}
         p.item-desc {{cut(recommend.desc,12)}}
         div.detail.clear
           span.price {{recommend.price}}
-          a.recommend-detail 查看详情
+          // a.recommend-detail 查看详情
 </template>
 <script>
 export default {

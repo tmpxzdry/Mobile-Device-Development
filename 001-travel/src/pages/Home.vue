@@ -14,7 +14,7 @@ import HomeIcons from "@/components/Home/HomeIcons.vue";
 import HomeRecommend from "@/components/Home/HomeRecommend.vue";
 import HomeWeekend from "@/components/Home/HomeWeekend.vue";
 import api from "../api/getHomeData";
-import { mapMutations, mapState } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   name: "Home",

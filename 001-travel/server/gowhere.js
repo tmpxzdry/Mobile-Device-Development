@@ -21,6 +21,12 @@ router.get('/getCityData', (req, res) => {
             res.send({ status: 'ok', cityData: data.data })
         }).catch(e => res.send(e));
 })
+router.get('/getDetailData', (req, res) => {
+    gw.findOne(req.query)
+        .then(data => {
+            res.send({ status: 'ok', detailData: data.data })
+        }).catch(e => res.send(e));
+})
 
 
 module.exports = router;

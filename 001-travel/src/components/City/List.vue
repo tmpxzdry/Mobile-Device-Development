@@ -46,7 +46,6 @@ export default {
     changeCity(city) {
       // this.$store.commit("changeHotCity", city);
       this.changeHotCity(city);
-      console.log("done");
       this.$router.push("/");
     },
     cut(value) {

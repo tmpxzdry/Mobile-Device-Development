@@ -6,7 +6,9 @@ function resolve(dir) {
 
 module.exports = {
     chainWebpack: config => {
-        config.resolve.alias.set('@style', resolve('src/style'))
+        config.resolve.alias
+            .set('@style', resolve('src/style'))
+            .set('@gallary', resolve('src/components/Gallary'))
     },
     //跨域配置
     //webpack-dev-server

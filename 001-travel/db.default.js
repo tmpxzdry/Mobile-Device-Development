@@ -1,5 +1,43 @@
 
-
+let detailData = {
+    data_name: 'detailData',
+    data: {
+        sightName: "大连圣亚海洋世界(AAAA景区)",
+        bannerImg:
+            "//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg",
+        gallaryImgs: [
+            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_r_800x800_6edd8174.jpg",
+            "http://img1.qunarzz.com/wugc/p123/201211/19/a2045d091f02b25493835fbb.png_r_800x800_c59f0eba.png"
+        ],
+        categoryList: [
+            {
+                title: "成人票",
+                children: [
+                    {
+                        title: "成人三馆联票",
+                        children: [
+                            {
+                                title: "成人三馆联票 - 某一连锁店销售"
+                            }
+                        ]
+                    },
+                    {
+                        title: "成人五馆联票"
+                    }
+                ]
+            },
+            {
+                title: "学生票"
+            },
+            {
+                title: "儿童票"
+            },
+            {
+                title: "特惠票"
+            }
+        ]
+    }
+}
 let homeData = {
     data_name: 'homeData',
     data: {
@@ -5043,5 +5081,6 @@ let cityData = {
 
 module.exports = {
     homeData,
-    cityData
+    cityData,
+    detailData
 };

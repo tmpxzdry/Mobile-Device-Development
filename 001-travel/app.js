@@ -30,7 +30,7 @@ db.once("error", () => console.log("database open failed"))
 const gw = require('./models/gowhere');
 
 // console.log(data.cityData);
-// gw.create(data.homeData).then(r => {
+// gw.create(data.detailData).then(r => {
 //     console.log('done');
 // });
 

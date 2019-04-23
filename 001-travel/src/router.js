@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 
 import Home from './pages/Home.vue';
 import City from './pages/City.vue';
+import Detail from './pages/Detail.vue'
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -15,6 +16,9 @@ const router = new VueRouter({
         }, {
             path: '/city',
             component: City
+        },{
+            path:'/detail/:id',
+            component:Detail
         }
     ]
 })
