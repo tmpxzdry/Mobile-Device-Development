@@ -24,7 +24,7 @@ export default {
       swiperOption: {
         pagination: ".swiper-pagination",
         paginationType: "fraction",
-        loop: true,
+        // loop: true,
         autoplay: 5000, //3.0以下api
         observeParents: true, //父级元素变化自我刷新
         observer: true
