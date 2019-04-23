@@ -25,8 +25,13 @@ export default {
     //keep-alive钩子
     window.addEventListener("scroll", this.handleScroll);
   },
+  deactivated() {
+    //离开页面时解绑全局事件
+    window.removeEventListener("scroll", this.handleScroll);
+  },
   methods: {
     handleScroll() {
+      console.log("test");
       const top = document.documentElement.scrollTop;
       if (top > 60) {
         let opacity = top / 140;
@@ -79,13 +84,16 @@ export default {
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 0.4rem;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.5);
   text-align: center;
   line-height: 0.8rem;
 
   .header-back-icon {
     color: #fff;
     font-size: 0.4rem;
+    position: relative;
+    right: 0.04rem;
+    top: 0.02rem;
   }
 }
 </style>
