@@ -1,13 +1,16 @@
 <template lang="pug">
 div 
   Banner(:gallary="gallary" :imgSrc="bannerImg" :sightname="sightName")
+  Header
 </template>
 <script>
 import Banner from "@/components/Detail/Banner.vue";
+import Header from "@/components/Detail/Header.vue";
+
 import api from "../api/getDetailData.js";
 export default {
   name: "Detail",
-  components: { Banner },
+  components: { Banner, Header },
   data() {
     return {
       bannerImg: "",
@@ -25,7 +28,7 @@ export default {
           let data = r.detailData;
           this.bannerImg = data.bannerImg;
           this.sightName = data.sightName;
-          this.gallary=data.gallaryImgs
+          this.gallary = data.gallaryImgs;
         }
       });
     }
