@@ -21,6 +21,7 @@ export default {
     };
   },
   activated() {
+    console.log("s");
     //keep-alive钩子
     window.addEventListener("scroll", this.handleScroll);
   },

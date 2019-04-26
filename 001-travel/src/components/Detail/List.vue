@@ -6,6 +6,7 @@ div
       span {{item.title}}
     div(v-if="item.children").item-children
       detail-list(:list="item.children")
+  
 </template>
 <script>
 export default {

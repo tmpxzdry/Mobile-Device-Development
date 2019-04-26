@@ -49,6 +49,7 @@ export default {
 }
 
 .container {
+  // touch-action: none;
   display: flex;
   z-index: 99;
   flex-direction: column;

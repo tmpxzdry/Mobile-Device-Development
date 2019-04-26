@@ -25,6 +25,9 @@ export default {
       gallarys: {}
     };
   },
+  // updated() {
+  //   this.$el.scrollIntoView();
+  // },
   methods: {
     showGallary() {
       this.show = true;

@@ -3,7 +3,7 @@ div
   Banner(:gallary="gallary" :imgSrc="bannerImg" :sightname="sightName")
   Header
   List(:list="list")
-  div.content
+  div.fill-blank
 </template>
 <script>
 import Banner from "@/components/Detail/Banner.vue";
@@ -41,7 +41,7 @@ export default {
 };
 </script>
 <style lang="stylus">
-.content {
+.fill-blank {
   height: 50rem;
 }
 </style>
