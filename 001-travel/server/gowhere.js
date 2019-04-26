@@ -10,19 +10,19 @@ router.put('/createData', (req, res) => {
     })
 })
 router.get('/getHomeData', (req, res) => {
-    gw.findOne(req.query)
+    gw.findOne({data_name:req.query.data_name})
         .then(data => {
             res.send({ status: 'ok', HomeData: data.data })
         }).catch(e => res.send(e));
 })
 router.get('/getCityData', (req, res) => {
-    gw.findOne(req.query)
+    gw.findOne({data_name:req.query.data_name})
         .then(data => {
             res.send({ status: 'ok', cityData: data.data })
         }).catch(e => res.send(e));
 })
 router.get('/getDetailData', (req, res) => {
-    gw.findOne(req.query)
+    gw.findOne({data_name:req.query.data_name})
         .then(data => {
             res.send({ status: 'ok', detailData: data.data })
         }).catch(e => res.send(e));

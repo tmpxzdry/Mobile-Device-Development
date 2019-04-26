@@ -8,7 +8,6 @@ div
   )
     div 景点详情
     router-link(to="/"): div.iconfont.header-fixed-back &#xe624;
-  div.content
 </template>
 <script>
 export default {
@@ -31,7 +30,6 @@ export default {
   },
   methods: {
     handleScroll() {
-      console.log("test");
       const top = document.documentElement.scrollTop;
       if (top > 60) {
         let opacity = top / 140;
@@ -61,6 +59,7 @@ export default {
   text-align: center;
   color: #fff;
   background: $bg_color;
+  z-index: 2;
 
   .header-fixed-back {
     top: 0;
@@ -71,10 +70,6 @@ export default {
     position: absolute;
     color: #fff;
   }
-}
-
-.content {
-  height: 50rem;
 }
 
 .header-abs {

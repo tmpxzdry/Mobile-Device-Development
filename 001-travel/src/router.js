@@ -16,10 +16,13 @@ const router = new VueRouter({
         }, {
             path: '/city',
             component: City
-        },{
-            path:'/detail/:id',
-            component:Detail
+        }, {
+            path: '/detail/:id',
+            component: Detail
         }
-    ]
+    ],
+    scrollBehavior(to, from, savePosition) {
+        return { x: 0, y: 0 }//页面切换回到顶部
+    }
 })
 export default router;

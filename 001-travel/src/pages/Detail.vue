@@ -2,20 +2,24 @@
 div 
   Banner(:gallary="gallary" :imgSrc="bannerImg" :sightname="sightName")
   Header
+  List(:list="list")
+  div.content
 </template>
 <script>
 import Banner from "@/components/Detail/Banner.vue";
 import Header from "@/components/Detail/Header.vue";
+import List from "@/components/Detail/List.vue";
 
 import api from "../api/getDetailData.js";
 export default {
   name: "Detail",
-  components: { Banner, Header },
+  components: { Banner, Header, List },
   data() {
     return {
       bannerImg: "",
       sightName: "",
-      gallary: []
+      gallary: [],
+      list: []
     };
   },
   mounted() {
@@ -23,16 +27,21 @@ export default {
   },
   methods: {
     init() {
-      api.getDetailData().then(r => {
+      api.getDetailData(this.$route.params.id).then(r => {
         if (r.status == "ok") {
           let data = r.detailData;
           this.bannerImg = data.bannerImg;
           this.sightName = data.sightName;
           this.gallary = data.gallaryImgs;
+          this.list = data.list;
         }
       });
     }
   }
 };
 </script>
-<style lang="stylus"></style>
+<style lang="stylus">
+.content {
+  height: 50rem;
+}
+</style>
