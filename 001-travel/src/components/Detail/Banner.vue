@@ -6,10 +6,13 @@ div
       div.banner-title {{sightname}}
       div.banner-number
         span.iconfont.banner-icon &#xe6dd; {{gallarys.length}}
-  gallary(@close="hiddenGallary" :swiperGallarys="gallary" v-show="show")
+  fade-animation
+    gallary(@close="hiddenGallary" :swiperGallarys="gallary" v-if="show")
 </template>
 <script>
 import Gallary from "@gallary/Gallary.vue";
+import FadeAnimation from "@/components/FadeAnimation/Fade.vue";
+
 export default {
   name: "Banner",
   props: {
@@ -19,6 +22,7 @@ export default {
       type: Array
     }
   },
+  components: { FadeAnimation, Gallary },
   data() {
     return {
       show: false,
@@ -26,7 +30,7 @@ export default {
     };
   },
   // updated() {
-  //   this.$el.scrollIntoView();
+  //   this.$el.scrollTo(0, 0, 300);
   // },
   methods: {
     showGallary() {
@@ -35,8 +39,7 @@ export default {
     hiddenGallary() {
       this.show = false;
     }
-  },
-  components: { Gallary }
+  }
 };
 </script>
 <style lang="stylus" scoped>

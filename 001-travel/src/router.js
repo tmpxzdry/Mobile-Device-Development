@@ -5,10 +5,12 @@ import VueRouter from "vue-router";
 import Home from './pages/Home.vue';
 import City from './pages/City.vue';
 import Detail from './pages/Detail.vue'
+import 'babel-polyfill'
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    mode: 'history',
+    // mode: 'history',
     routes: [
         {
             path: '/',

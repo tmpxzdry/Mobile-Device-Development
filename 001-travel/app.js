@@ -6,11 +6,13 @@ const json = bodyparser.json();
 const mongoose = require('mongoose')
 const router = require('./server/gowhere');
 const data = require('./db.default');
+const history = require('connect-history-api-fallback')
 // set CORS headers
-// app.use( (req, res, next)=> {
+// app.use((req, res, next) => {
 //     const origin = req.headers.origin;
 
-//     //Access-Control-Allow-Headers ,可根据浏览器的F12查看,把对应的粘贴在这里就行
+//     // Access - Control - Allow - Headers;//可根据浏览器的F12查看,把对应的粘贴在这里就行
+//     header("Access-Control-Allow-Origin：http://127.0.0.1:3008");
 //     res.setHeader('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
 //     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 //     next();
@@ -21,6 +23,7 @@ const data = require('./db.default');
 app.use(json);
 app.use(urlencoded);
 app.use(router);
+app.use(history());//支持history api
 
 mongoose.connect('mongodb://localhost:27017/Mobile_practice');
 const db = mongoose.connection;

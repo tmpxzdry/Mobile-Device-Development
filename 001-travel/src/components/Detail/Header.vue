@@ -20,15 +20,16 @@ export default {
       }
     };
   },
-  activated() {
-    console.log("s");
-    //keep-alive钩子
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  deactivated() {
-    //离开页面时解绑全局事件
-    window.removeEventListener("scroll", this.handleScroll);
-  },
+  //使用exclude后就这两个钩子就不起作用了
+  // activated() {
+  //   console.log("s");
+  //   //keep-alive钩子
+  //   window.addEventListener("scroll", this.handleScroll);
+  // },
+  // deactivated() {
+  //   //离开页面时解绑全局事件
+  //   window.removeEventListener("scroll", this.handleScroll);
+  // },
   methods: {
     handleScroll() {
       const top = document.documentElement.scrollTop;
