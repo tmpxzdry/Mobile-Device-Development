@@ -1,6 +1,3 @@
-
-
-
 let detailData = {
     data_name: 'detailData',
     data: {
@@ -5099,7 +5096,18 @@ let cityData = {
         }
     }
 }
+const gw = require('./models/gowhere');
 
+//test insert data
+gw.create(detailData).then(r => {
+    console.log('detailData done!');
+});
+gw.create(homeData).then(r => {
+    console.log('homeData done');
+});
+gw.create(cityData).then(r => {
+    console.log('cityData done');
+});
 
 
 module.exports = {

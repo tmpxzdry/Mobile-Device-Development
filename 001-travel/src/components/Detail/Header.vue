@@ -20,6 +20,12 @@ export default {
       }
     };
   },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
   //使用exclude后就这两个钩子就不起作用了
   // activated() {
   //   console.log("s");

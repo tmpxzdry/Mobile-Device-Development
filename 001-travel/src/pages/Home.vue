@@ -57,7 +57,7 @@ export default {
           }
         })
         .catch(e => {
-          alert("会话过期，请手动刷新");
+          alert("服务器似乎崩溃了，请联系作者解决");
         });
     }
   }
